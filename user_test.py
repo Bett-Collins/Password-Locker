@@ -29,16 +29,36 @@ class User(unittest.TestCase):
                  
              def test_save_user(self):
                    
+                   '''
+                  find user using username 
+                   ''' 
                    self.assertEqual(len(User.user_list),1)
              
              
              
              def test_save_multiple_users(self):
-                self.new_user.save_user()
-                test_user = User("Collins","00000")
-                test_user.ssave_user()
-                self.assertEqual(len(User.user_list), 2)
-                     
                  
-                if __name__ == '__main__':
-                    unittest.main()
+                 '''
+                 find multiple users using saved user
+                 '''
+                 
+                 self.new_user.save_user()
+                 test_user = User("Collins","00000")
+                 test_user.save_user()
+                 self.assertEqual(len(User.user_list), 2)
+                
+                
+             def test_delete_user(self):
+                 
+                 '''
+                 deleting user's details
+                 '''
+                
+             self.new_user.save_user()
+             test_user = User("Collins","00000")
+             test_user.save_user()
+             self.new_user.delete_user()
+             self.assertEqual(len(User.user_list), 1)   
+                 
+if __name__ == '__main__':
+    unittest.main()
