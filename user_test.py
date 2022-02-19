@@ -18,8 +18,17 @@ class User(unittest.TestCase):
              User.user_list = []
              
              def test_init(self):
+                 
+                 '''
+                 test is used to see if the object has been initialized correctly
+                 '''
                  self.assertEqual(self.new_user.user_name,"Collins")
                  self.assertEqual(self.new_user.user_password,"Bett")
+                 
+                 
+             def test_save_user(self):
+                   
+                   self.assertEqual(len(User.user_list),1)
              
-             if __name__ == '__main__':
-              unittest.main()
+              if __name__ == '__main__':
+                unittest.main()
