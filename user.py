@@ -22,6 +22,21 @@ class User:
             '''
             this method will save the user list
             '''
+        User.user_list.append(self)
+        
+        @classmethod
+        def find_credential(cls, name):
             
-            
-       
+         '''
+         this method check if credentials is imported correctly
+           
+           args:
+           name:name of the credential
+           
+           Return:
+           Boolean:True of false if credentail exist
+           
+           '''
+        for credential in  credential.credential_list:
+               if credential.credential_name == name:
+                   return True
