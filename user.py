@@ -38,14 +38,14 @@ class User:
            
            '''
         for credential in  credential.credential_list:
-               if credential.credential_name == name:
+               if credential.credential_name == user_name:
                    return True
                
-        return false
+                   return false
     @classmethod
      
     def log_in(cls,name,password):
-         
+
          '''
          return user list
          '''
