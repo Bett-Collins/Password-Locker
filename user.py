@@ -9,11 +9,19 @@ class User:
         '''
         we define the property object by using _init_
         '''
-        
-        self.user.name =user_name
-        self.user_password = user_password
         '''
-        args:
+         args:
         user.name: name of  a user
         user_password: password of the user
         '''
+        
+        self.user.name =user_name
+        self.user_password = user_password
+        
+        def save_user(self):
+            '''
+            this method will save the user list
+            '''
+            
+            
+       
