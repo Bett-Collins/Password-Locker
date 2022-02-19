@@ -1,3 +1,5 @@
+from user_test import User
+
 class User:
     '''
     class will generate instance of user account

@@ -2,6 +2,7 @@
 import unittest
 from user import User 
 
+
 class User(unittest.TestCase):
      def setUp(self):
          '''
@@ -22,13 +23,22 @@ class User(unittest.TestCase):
                  '''
                  test is used to see if the object has been initialized correctly
                  '''
-                 self.assertEqual(self.new_user.user_name,"Collins")
-                 self.assertEqual(self.new_user.user_password,"Bett")
+                 self.assertEquals(self.new_user.user_name,"Collins")
+                 self.assertEquals(self.new_user.user_password,"Bett")
                  
                  
              def test_save_user(self):
                    
                    self.assertEqual(len(User.user_list),1)
              
-              if __name__ == '__main__':
-                unittest.main()
+             
+             
+             def test_save_multiple_users(self):
+                self.new_user.save_user()
+                test_user = User("Collins","00000")
+                test_user.ssave_user()
+                self.assertEqual(len(User.user_list), 2)
+                     
+                 
+                if __name__ == '__main__':
+                    unittest.main()
