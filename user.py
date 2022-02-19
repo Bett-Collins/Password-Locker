@@ -40,3 +40,26 @@ class User:
         for credential in  credential.credential_list:
                if credential.credential_name == name:
                    return True
+               
+        return false
+    @classmethod
+     
+    def log_in(cls,name,password):
+         
+         '''
+         return user list
+         '''
+         return cls.user_name
+         return cls.user_password
+     
+    @classmethod
+    def delete_account(self,username):
+        '''
+        deletes saved account
+        '''
+        for user in User.user_list:
+            if user.username == username:
+                User.user_list.remove(user)
+
+     
+     
