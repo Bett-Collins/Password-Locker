@@ -11,10 +11,10 @@ class TestUser(unittest.TestCase):
          
          self.new_user = User("Collins","Bett")
          
-         def teardown(self):
+         def tearDown(self):
              
              '''
-             teardown method enable test to be executed after each test
+                     tearDown method clean up after each test case is run
              '''
              User.user_list = []
              

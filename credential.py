@@ -4,6 +4,7 @@ class Credentials:
     '''
     this class will enable the generation of instance classes
     '''
+    credential_list = []
   
 def _init_ (self,credential_name,user_password,credential_password):
       
