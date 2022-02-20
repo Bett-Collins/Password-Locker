@@ -17,8 +17,8 @@ def _init_ (self,credential_name,user_password,credential_password):
      self.credential_password   = credential_password
      
      '''
-    self.user_password   = user_password
     self.credential_name   = credential_name
+    self.user_password   = user_password
     self.credential_password   = credential_password
      
     def save_credential(self):
