@@ -24,7 +24,7 @@ def setUp(self):
     
     #Create Credential object
     
-    self.new_credential = Credentials('Collins','arapbett','bettcollins')
+    self.new_credential = Credentials('Facebook','arapbett','bett@Collins')
     
     def tearDown(self):
         '''
@@ -37,9 +37,9 @@ def setUp(self):
           """
         Test case to check if a new Credentials have been initiated properly 
         """
-        self.assertEqual(self.new_credential.credential_name,'Collins')
-        self.assertEqual(self.new_credential.user_password,'2030')
-        self.assertEqual(self.new_credential.credential_password,'bettcollins')
+        self.assertEqual(self.new_credential.credential_name,'facebook')
+        self.assertEqual(self.new_credential.user_password,'arapbett')
+        self.assertEqual(self.new_credential.credential_password,'bett@collins')
        
    
    
@@ -48,7 +48,7 @@ def setUp(self):
         """
         test case to test if the crential object is saved into the credentials list.
         """
-        self.new_credential.credential_name()
+        self.new_credential.save_credential()
         self.assertEqual(len(Credentials.credential_list),1)
         
         
@@ -58,9 +58,4 @@ def setUp(self):
         test to check if we can find a credential entry by account name and display the details of the credential
         """
         self.new_credential_name.credential_name()
-        test_credential_name = Credentials("Collins","arapbett","bettcollins")
-        test_credential_name.save_credential_name()
-        test_credential_name = Credentials.find_credential("Collins")
-        self.assertEqual(the_credential_name.credential_name)
         
-  
