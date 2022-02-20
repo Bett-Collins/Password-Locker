@@ -57,5 +57,14 @@ def setUp(self):
         """
         test to check if we can find a credential entry by account name and display the details of the credential
         """
-        self.new_credential_name.credential_name()
         
+        self.new_credential.find_credential()
+        Credential_name = Credentials('facebook')
+        Credential_name.find_credential()
+        self.assertEqual(Credential_name.credential_list)
+
+    def test_get_credential(self):
+        """
+        Test case tests whether saved user credentials are displayed
+        """
+        self.assertEqual(Credentials.find_credentials(), Credentials.user_credential_list)
