@@ -33,13 +33,30 @@ def setUp(self):
         Credentials.credential_list = []
         
         
-    def test_init(self):
-        '''
-        TestCase test if the object is initialised properly 
-        '''
-    # self.assertEquals(self.new_credential_name.credential_name, "Collins")
-    # self.assertEquals(self.new_credential_password.credential_password, "2030")
+   
+    def test__init__(self,credential_name,user_password,credential_password):
+        """
+        method that defines storage of  user  credentials
+        """
+        self.user__password = user_password
+        self.credential_name =credential_name
+        self.credential_password = credential_password
     
+    
+    def save_credential(self):
+        
+        """
+ the method will enable new storage in credential_list
+        """
+        Credentials.credential_list.append(self)
+   
+   
+   
+   
+   
+   
+   
+   
     @classmethod
     
     def verify_user(cls,credential_name,user_password,credential_password):
