@@ -28,12 +28,33 @@ def _init_ (self,credential_name,user_password,credential_password):
         '''
         
         Credentials.credential_list.append(self)
+    
+    
+    def delete_credential(self):
+        """
+        it is a method to delete credentials
+        """
+        Credentials.credential_list.remove(self)
         
-    @classmethod 
+    @classmethod
        
-    def generate_password(cls):
-        
+    def get_credential(cls, credential_name):
+       
         '''
-        it is a method used to generate password
+         
+        it is a method that take in the user_password and return the credential of the user
         '''
-        
+        for credential in cls.credential_list:
+            if credential.credential_name == credential_name:
+                return credential
+            
+            
+    @classmethod
+    def if_credential_available(cls, credential_name):
+        """
+        Method that checks if the credential of the user is available and return a boolean
+        """
+        for credential in cls.credential_list:
+            if credential.credential_name == credential_name:
+                return True
+        return False   

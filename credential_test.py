@@ -24,7 +24,7 @@ def setUp(self):
     
     #Create Credential object
     
-    self.new_credential = Credentials('Collins','paypal','Binance')
+    self.new_credential = Credentials('Collins','arapbett','bettcollins')
     
     def tearDown(self):
         '''
@@ -34,43 +34,6 @@ def setUp(self):
         
         
    
-    def test__init__(self,credential_name,user_password,credential_password):
-        """
-        method that defines storage of  user  credentials
-        """
-        self.user__password = user_password
-        self.credential_name =credential_name
-        self.credential_password = credential_password
+   
     
-    
-    def save_credential(self):
-        
-        """
- the method will enable new storage in credential_list
-        """
-        Credentials.credential_list.append(self)
    
-   
-   
-   
-   
-   
-   
-   
-    @classmethod
-    
-    def verify_user(cls,credential_name,user_password,credential_password):
-        
-        '''
-        the method is used to verify if the user is in th user_list
-        '''
-    
-        non_user = ""
-        for credential in credential.credential_list:
-            if credential.credential_name == credential_name and credential_password == credential_password):
-                non_user == Credentials.credential_name
-                return non_user
-    
-         
-         
-    
