@@ -65,6 +65,11 @@ def setUp(self):
 
     def test_get_credential(self):
         """
-        Test case tests whether saved user credentials are displayed
+        the test will test if the credentials are available
         """
         self.assertEqual(Credentials.find_credentials(), Credentials.user_credential_list)
+        
+        
+        
+        if __name__ == "__main__":
+             unittest.main()
