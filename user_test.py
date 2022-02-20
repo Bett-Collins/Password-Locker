@@ -3,7 +3,7 @@ import unittest
 from user import User 
 
 
-class User(unittest.TestCase):
+class TestUser(unittest.TestCase):
      def setUp(self):
          '''
          setUp method enable test to be executed before each test
