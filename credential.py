@@ -28,4 +28,11 @@ def _init_ (self,credential_name,user_password,credential_password):
         
         Credentials.credential_list.append(self)
         
+    @classmethod 
+       
+    def generate_password(cls):
+        
+        '''
+        it is a method used to generate password
+        '''
         
