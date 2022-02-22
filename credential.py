@@ -15,8 +15,7 @@ def _init_ (self,credential_name,user_password,credential_password):
      self.user_password   = user_password
      self.credential_name   = credential_name
      self.credential_password   = credential_password
-     
-     '''
+         '''
     self.credential_name   = credential_name
     self.user_password   = user_password
     self.credential_password   = credential_password
@@ -50,7 +49,7 @@ def _init_ (self,credential_name,user_password,credential_password):
             
             
     @classmethod
-    def if_credential_available(cls, credential_name):
+    def check_credentials(cls, credential_name):
         """
         Method that checks if the credential of the user is available and return a boolean
         """

@@ -17,7 +17,7 @@ class User:
         user_password: password of the user
         '''
         
-        self.user.name =user_name
+        self.user_name =user_name
         self.user_password = user_password
         
         def save_user(self):
@@ -49,7 +49,7 @@ class User:
     def log_in(cls,name,password):
 
          '''
-         return user list
+         return user_list
          '''
          return cls.user_name
          return cls.user_password
