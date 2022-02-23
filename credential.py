@@ -1,4 +1,7 @@
 from user import User
+from random import choice # pick random in list to help in password generation
+import string
+
 
 class Credentials:
     '''
@@ -6,21 +9,22 @@ class Credentials:
     '''
     credential_list = []
   
-def _init_ (self,credential_name,user_password,credential_password):
+def _init_ (self,credential_name,credential_password,user_account):
       
-    '''
+        '''
     _init_ method will define the properties of the User objects
      
-     args:
-     self.user_password   = user_password
-     self.credential_name   = credential_name
-     self.credential_password   = credential_password
-         '''
-    self.credential_name   = credential_name
-    self.user_password   = user_password
-    self.credential_password   = credential_password
+      args:
+      self.credential_password   = credential_password
+      self.credential_name   = credential_name
+      self.user_account   = user_account
      
-    def save_credential(self):
+      '''
+        self.credential_name   = credential_name
+        self.credential_password   = credential_password
+        self.user_account   = user_account
+      
+def save_credential(self):
         
         '''
         this is a methof that will save user's credentials
@@ -29,31 +33,52 @@ def _init_ (self,credential_name,user_password,credential_password):
         Credentials.credential_list.append(self)
     
     
-    def delete_credential(self):
+def delete_credential(self):
         """
         it is a method to delete credentials
         """
         Credentials.credential_list.remove(self)
         
-    @classmethod
-       
-    def get_credential(cls, credential_name):
-       
+   
+@classmethod
+def show_credentials(cls,password):
         '''
-         
-        it is a method that take in the user_password and return the credential of the user
+        Method that returns the credential list
+        Args:
+            password : the user password
         '''
+        user_credential_list = []
+
         for credential in cls.credential_list:
-            if credential.credential_name == credential_name:
-                return credential
+            if credential.credential_password == password:
+                user_credential_list.append(credential)
+
+        return user_credential_list
+    
+@classmethod
+def generate_password(cls):
+        '''
+        Method that generates a random alphanumeric password
+        '''
+        # Length of the generated password
+        size = 8
+
+        # Generate random alphanumeric 
+        alphanum = string.ascii_uppercase + string.digits + string.ascii_lowercase
+
+        # Create password
+        password = ''.join( choice(alphanum) for num in range(size) )
+        
+        return password
+
+
             
-            
-    @classmethod
-    def check_credentials(cls, credential_name):
+@classmethod
+def check_credentials(cls,name):
         """
         Method that checks if the credential of the user is available and return a boolean
         """
         for credential in cls.credential_list:
-            if credential.credential_name == credential_name:
+            if credential.credential_name == name:
                 return True
         return False   
