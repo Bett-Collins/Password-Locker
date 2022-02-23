@@ -1,12 +1,10 @@
-'''
-import unittest
-import class Credential
-'''
-
-from ast import Import
 import unittest
 from credential import Credentials
+from random import choice
 import string
+from user import User
+
+
 
 class TestCredential(unittest.TestCase):
     
@@ -24,27 +22,26 @@ def setUp(self):
     
     #Create Credential object
     
-    self.new_credential = Credentials('Facebook','arapbett','bett@Collins')
-    
-    def tearDown(self):
+    self.new_credential = Credentials('arapbett','2030','facebook')
+
+def tearDown(self):
         '''
         tearDown method clean up after each test case is run
         '''
         Credentials.credential_list = []
         
-        def test_init_(self):
+def test_init_(self):
             
-          """
-        Test case to check if a new Credentials have been initiated properly 
-        """
-        self.assertEqual(self.new_credential.credential_name,'facebook')
-        self.assertEqual(self.new_credential.user_password,'arapbett')
-        self.assertEqual(self.new_credential.credential_password,'bett@collins')
+    """
+    Test case to check if a new Credentials have been initiated properly 
+    """
+    self.assertEqual(self.new_credential.credential_name,'arapbett')
+    self.assertEqual(self.new_credential.credential_password,'2030')
+    self.assertEqual(self.new_credential.credential_account,'facebook')
        
    
    
-    
-    def save_credential_test(self):
+def test_save_credential(self):
         """
         test case to test if the crential object is saved into the credentials list.
         """
@@ -53,23 +50,35 @@ def setUp(self):
         
         
         
-    def test_find_credential(self):
-        """
-        test to check if we can find a credential entry by account name and display the details of the credential
-        """
+(Credentials.find_credentials(), Credentials.user_credential_list)
         
-        self.new_credential.find_credential()
-        Credential_name = Credentials('facebook')
-        Credential_name.find_credential()
-        self.assertEqual(Credential_name.credential_list)
+def test_generate_password(self):
+        '''
+     Test case to determine if the user can log into their credentials
+        '''
+        
+        generated_password = self.new_credential.generate_password()
 
-    def test_get_credential(self):
-        """
-        the test will test if the credentials are available
-        """
-        self.assertEqual(Credentials.find_credentials(), Credentials.user_credential_list)
+        self.assertEqual(len(generated_password), 8 )      
         
         
+def test_check_credentials(self):
         
-        if __name__ == "__main__":
-             unittest.main()
+    '''
+    The test test if it will return a boolean if the credential is absent
+    '''
+
+        
+    self.new_credential.save_credential()
+
+    test_credential = Credentials("arapbett","2030","facebook")
+
+    test_credential.save_credential()
+        
+      
+    credential_exists = Credentials.credential_exist("Facebook")
+        
+    self.assertTrue(credential_exists)
+       
+       
+       
