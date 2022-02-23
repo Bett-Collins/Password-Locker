@@ -1,4 +1,4 @@
-from user_test import User
+from credential import Credentials
 
 class User:
     '''
@@ -7,7 +7,7 @@ class User:
     user_list  =[]
    
     
-    def _init_(self,user_name,user_password):
+def _init_(self,user_name,user_password):
         '''
         we define the property object by using _init_
         '''
@@ -20,47 +20,52 @@ class User:
         self.user_name =user_name
         self.user_password = user_password
         
-        def save_user(self):
+def save_user(self):
             '''
             this method will save the user list
             '''
-        User.user_list.append(self)
-        
-        @classmethod
-        def find_credential(cls, name):
+            User.user_list.append(self)
             
-         '''
-         this method check if credentials is imported correctly
-           
-           args:
-           name:name of the credential
-           
-           Return:
-           Boolean:True of false if credentail exist
-           
-           '''
-        for credential in  credential.credential_list:
-               if credential.credential_name == user_name:
-                   return True
-               
-                   return false
-    @classmethod
+            
+@classmethod
+def show_user(cls):
+        '''
+        Method that returns the user list
+        '''
+        
+        return cls.user_list
+            
+@classmethod
+def confirm_user(cls, user_name):
+        """
+        The method confirms if the details the user has entered is in the user_list
+        """
+        for user in cls.user_list:
+            if user.user_name == user_name:
+                return True
+        return False   
+        
+        
+       
+@classmethod
      
-    def log_in(cls,name,password):
-
-         '''
-         return user_list
-         '''
-         return cls.user_name
-         return cls.user_password
+def log_in(cls,user_name,user_password):
+        """
+        Method that will allow user to  login into their account
+        """
+        for user in cls.user_list:
+            if user.user_name == user_name and user.user_password == user_password:
+                return Credentials.user_credential_list
+            return False
+    
      
-    @classmethod
-    def delete_account(self,username):
+@classmethod
+def delete_account(self,username):
         '''
         deletes saved account
         '''
         for user in User.user_list:
-            if user.username == username:
+            if User.user_name == username:
                 User.user_list.remove(user)
 
      
