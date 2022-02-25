@@ -1,6 +1,6 @@
 # Password-Locker
 ## Author
-kIPROTICH Collins
+Kiprotich Collins
 ## Description
 it is an application that take in credentials,save, add,generate and save the credentials of the user
 ### Prerequisites
