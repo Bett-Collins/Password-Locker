@@ -1,72 +1,59 @@
-from credential import Credentials
-
 class User:
-    '''
-    class will generate instance of user account
-    '''
-    user_list  =[]
-   
-    
-def _init_(self,user_name,user_password):
-        '''
-        we define the property object by using _init_
-        '''
-        '''
-         args:
-        user.name: name of  a user
-        user_password: password of the user
-        '''
-        
-        self.user_name =user_name
-        self.user_password = user_password
-        
-def save_user(self):
-            '''
-            this method will save the user list
-            '''
-            User.user_list.append(self)
-            
-            
-@classmethod
-def show_user(cls):
-        '''
-        Method that returns the user list
-        '''
-        
-        return cls.user_list
-            
-@classmethod
-def confirm_user(cls, user_name):
-        """
-        The method confirms if the details the user has entered is in the user_list
-        """
-        for user in cls.user_list:
-            if user.user_name == user_name:
-                return True
-        return False   
-        
-        
-       
-@classmethod
-     
-def log_in(cls,user_name,user_password):
-        """
-        Method that will allow user to  login into their account
-        """
-        for user in cls.user_list:
-            if user.user_name == user_name and user.user_password == user_password:
-                return Credentials.user_credential_list
-            return False
-    
-     
-@classmethod
-def delete_account(self,username):
-        '''
-        deletes saved account
-        '''
-        for user in User.user_list:
-            if User.user_name == username:
-                User.user_list.remove(user)
+    """
+    Class that generates new instances of users.
+    """
+    user_list = [] #empty details list
 
-     
-     
+    def __init__(self,user_name,user_password,user_email):
+        self.user_name = user_name
+        self.user_password = user_password
+        self.user_email = user_email    
+
+    def save_user(self):
+
+        '''
+        save_details method saves details objects into details_list
+        '''
+
+        User.user_list.append(self)    
+
+
+    def delete_user(self):
+
+        '''
+        delete_details method deletes a saved details from the details_list
+        '''
+
+        User.user_list.remove(self)   
+
+
+    @classmethod
+    def find_user_by_name(cls,name):
+        for details in cls.user_list:
+            if User.user_name == name:
+                return User 
+
+
+    @classmethod
+    def user_exist(cls,user_name):
+        '''
+        Method that checks if a details exists from the details list.
+        Args:
+            name: Acc name to search if it exists
+        Returns :
+            Boolean: True or false depending if the details exists
+        '''
+        for User in cls.user_list:
+            if User.user_password == user_name:
+                    return User
+
+        return False      
+
+
+    @classmethod
+    def display_user(cls):  #check this line later
+        '''
+        method that returns the details list
+        '''
+        return cls.user_list
+        

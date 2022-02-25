@@ -1,84 +1,59 @@
-from user import User
-from random import choice # pick random in list to help in password generation
-import string
+class Credential:
+    """
+    Class that generates new instances of users.
+    """
+    credential_list = [] 
+
+    def __init__(self,credential_name,credential_password,user_account,email):
+       
+       
+        self.credential_name = credential_name
+        self.credential_password = credential_password
+        self.user_account = user_account
+        self.email = email
+    
+
+    def save_credential(self):
+
+        '''
+        save_account method saves account objects into account_list
+        '''
+
+        Credential.credential_list.append(self)
 
 
-class Credentials:
-    '''
-    this class will enable the generation of instance classes
-    '''
-    credential_list = []
-  
-def _init_ (self,credential_name,credential_password,user_account):
-      
+    def delete_credential(self):
+
         '''
-    _init_ method will define the properties of the User objects
-     
-      args:
-      self.credential_password   = credential_password
-      self.credential_name   = credential_name
-      self.user_account   = user_account
-     
-      '''
-        self.credential_name   = credential_name
-        self.credential_password   = credential_password
-        self.user_account   = user_account
-      
-def save_credential(self):
-        
+        delete_account method deletes a saved account from the account_list
         '''
-        this is a methof that will save user's credentials
-        '''
-        
-        Credentials.credential_list.append(self)
+
+        Credential.credential_list.remove(self)    
+    @classmethod
+    def find_by_credential_name(cls,credential_name):
+        for Credential in cls.credential_list:
+            if Credential.credential_name == credential_name:
+                return Credential  
     
-    
-def delete_credential(self):
-        """
-        it is a method to delete credentials
-        """
-        Credentials.credential_list.remove(self)
-        
-   
-@classmethod
-def show_credentials(cls,password):
+
+    @classmethod
+    def credential_exist(cls,credential_name):
         '''
-        Method that returns the credential list
+        Method that checks if a account exists from the account list.
         Args:
-            password : the user password
+            name: Acc name to search if it exists
+        Returns :
+            Boolean: True or false depending if the account exists
         '''
-        user_credential_list = []
+        for Credential in cls.credential_list:
+            if  Credential.credential_password == credential_name:
+                    return Credential
 
-        for credential in cls.credential_list:
-            if credential.credential_password == password:
-                user_credential_list.append(credential)
-
-        return user_credential_list
-    
-@classmethod
-def generate_password(cls):
+        return False
+    @classmethod
+    def display_credential(cls):
         '''
-        Method that generates a random alphanumeric password
+        method that returns the account list
         '''
-        # Length of the generated password
-        size = 8
-
-        # Generate random alphanumeric 
-        alphanum = string.ascii_uppercase + string.digits + string.ascii_lowercase
-
-        # Create password
-        password = ''.join( choice(alphanum) for num in range(size) )
+        return cls.credential_list
         
-        return password
-
-
-            
-@classmethod
-def check_credentials(cls,name):
-        """
-        Method that checks if the credential of the user is available and return a boolean
-        """
-        for credential in cls.credential_list:
-            if credential.credential_name == name:
-                return True
-        return False   
